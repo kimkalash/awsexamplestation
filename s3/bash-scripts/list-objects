@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 #!/bin/bash
 
+set -e  # Exit immediately if a command exits with a non-zero status
+
 # Define the directory to store random files
 OUTPUT_DIR="/tmp/s3-bash-scripts"
 
-# Create the directory if it doesn't exist
-mkdir -p "$OUTPUT_DIR"
+# Remove the directory if it already exists (ignore error if it doesn't exist)
+rm -rf "$OUTPUT_DIR"  # The `-f` option ignores errors if the directory doesn't exist
 
+# Create the directory
+mkdir -p "$OUTPUT_DIR"
 
 # Generate 10 random files in the directory
 for i in {1..10}; do
