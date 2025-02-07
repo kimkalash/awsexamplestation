@@ -10,3 +10,4 @@ aws s3api create-bucket \
 --create-bucket-configuration LocationConstraint=ca-central-1 \
 --query Location \
 --output text
+
