@@ -2,6 +2,21 @@
 #!/bin/bash
 
 set -e  # Exit immediately if a command exits with a non-zero status
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+
+
+if [ -z "$2" ]; then
+    echo "There needs to be a bucket name"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+FILENAME_PREFIX=$2
 
 # Define the directory to store random files
 OUTPUT_DIR="/tmp/s3-bash-scripts"
@@ -14,7 +29,7 @@ mkdir -p "$OUTPUT_DIR"
 
 # Generate 10 random files in the directory
 for i in {1..10}; do
-    FILENAME="$OUTPUT_DIR/file_$i.txt"
+    FILENAME="$OUTPUT_DIR/FILENAME_PREFIX_$i.txt"
     # Generate random content and write it to the file
     head -c 512 </dev/urandom | base64 > "$FILENAME"
     echo "Created: $FILENAME"
@@ -25,3 +40,5 @@ echo "📂 Listing files in local directory: $OUTPUT_DIR"
 tree "$OUTPUT_DIR"
 
 echo "✅ 10 random files created successfully!"
+
+aws s3 sync $directory s3://medoncomeagainov9/files
