@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #!/bin/bash
-
+set -e
 # Define the directory to store random files
 OUTPUT_DIR="/tmp/s3-bash-scripts"
 
 # Create the directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
+rm -r $OUTPUT_DIR
 
 # Generate 10 random files in the directory
 for i in {1..10}; do
