@@ -4,4 +4,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 BUCKET_NAME=$1
-aws s3api create-bucket --bucket mysuperduperbucket --region ca-central-1 --create-bucket-configuration LocationConstraint=ca-central-1
+aws s3api create-bucket\
+--bucket mysuperduperbucket\
+--create-bucket-configuration= LocationConstraint=ca-central-1\
+--query Location\
+--output text
