@@ -41,4 +41,4 @@ tree "$OUTPUT_DIR"
 
 echo "✅ 10 random files created successfully!"
 
-aws s3 sync $OUTPUT_DIR s3://medoncomeagainov9
+aws s3 sync $OUTPUT_DIR s3://medoncomeagainov9/files
