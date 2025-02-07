@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "==creating a bucket"
 if [ -z "$1" ]; then
     echo "There needs to be a bucket name"
     exit 1
