@@ -29,7 +29,7 @@ mkdir -p "$OUTPUT_DIR"
 
 # Generate 10 random files in the directory
 for i in {1..10}; do
-    FILENAME="$OUTPUT_DIR/$FILENAME_PREFIX_$i.txt"
+    FILENAME="$OUTPUT_DIR/${FILENAME_PREFIX}_$i.txt"
     # Generate random content and write it to the file
     head -c 512 </dev/urandom | base64 > "$FILENAME"
     echo "Created: $FILENAME"
