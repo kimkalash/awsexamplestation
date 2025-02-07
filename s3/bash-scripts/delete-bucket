@@ -1,1 +1,10 @@
 #!/usr/bin/env bash
+echo "==deleting bucket.Bucket deleted"
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name"
+    exit 1
+fi
+BUCKET_NAME=$1
+# http://mysuperduperbucket-v2.s3.amazonaws.com/
+aws s3api delete-bucket \
+--bucket "$BUCKET_NAME"
